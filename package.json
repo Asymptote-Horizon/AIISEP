@@ -1,0 +1,36 @@
+{
+	"name": "campus-compass",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "eslint",
+		"seed": "node scripts/seed.js"
+	},
+	"dependencies": {
+		"bcryptjs": "^3.0.3",
+		"framer-motion": "^12.40.0",
+		"lucide-react": "^1.21.0",
+		"mongoose": "^9.7.1",
+		"next": "16.2.9",
+		"next-auth": "^4.24.14",
+		"nodemailer": "^7.0.13",
+		"react": "19.2.4",
+		"react-dom": "19.2.4",
+		"react-easy-crop": "^6.1.0",
+		"three": "^0.185.1"
+	},
+	"devDependencies": {
+		"@tailwindcss/postcss": "^4.0.0",
+		"eslint": "^9.0.0",
+		"eslint-config-next": "16.2.9",
+		"jsrepo": "^3.8.0",
+		"tailwindcss": "^4.0.0"
+	},
+	"overrides": {
+		"postcss": "^8.4.49",
+		"uuid": "^11.1.1"
+	}
+}
