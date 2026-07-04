@@ -163,8 +163,12 @@ export default function Sidebar({ role, activeSection, onSectionChange }) {
       </button>
 
       <aside className={`sidebar ${collapsed ? 'sidebar-collapsed' : ''}`} id="main-sidebar">
-        <div style={{ marginBottom: '2rem', paddingLeft: '0.5rem' }}>
-          <MITLogo />
+        <div className="module-header">
+          <img
+          src="/mitaoe-white.svg"
+          alt="MIT Academy of Engineering"
+          className="module-logo"
+          />
         </div>
         <div className="sidebar-menu">
           {menuItems.map((item) => (
