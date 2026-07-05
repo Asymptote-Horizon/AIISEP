@@ -73,6 +73,16 @@ const adminMenuItems = [
       </svg>
     ),
   },
+  {
+    id: 'timetable-generation',
+    label: 'Timetable Generation',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25" />
+      </svg>
+    ),
+  },
 ];
 
 const facultyMenuItems = [
@@ -165,31 +175,38 @@ export default function Sidebar({ role, activeSection, onSectionChange }) {
       <aside className={`sidebar ${collapsed ? 'sidebar-collapsed' : ''}`} id="main-sidebar">
         <div className="module-header">
           <img
-          src="/mitaoe-white.svg"
-          alt="MIT Academy of Engineering"
-          className="module-logo"
+            src="/mitaoe-white.svg"
+            alt="MIT Academy of Engineering"
+            className="module-logo"
           />
         </div>
         <div className="sidebar-menu">
-          {menuItems.map((item) => (
-            <button
-              key={item.id}
-              className={`sidebar-item ${activeSection === item.id ? 'sidebar-item-active' : ''}`}
-              onClick={() => {
-                onSectionChange(item.id);
-                setCollapsed(true);
-              }}
-              id={`sidebar-${item.id}`}
-            >
-              <span className="sidebar-item-icon">{item.icon}</span>
-              <span className="sidebar-item-label">{item.label}</span>
-              {activeSection === item.id && (
-                <span className="sidebar-active-indicator"></span>
-              )}
-            </button>
-          ))}
-        </div>
+  {menuItems.map((item) => (
+    <button
+      key={item.id}
+      className={`sidebar-item ${activeSection === item.id ? 'sidebar-item-active' : ''}`}
+      onClick={() => {
+        // Intercept click if it is the external timetable link
+        if (item.id === 'timetable-generation') {
+          window.open('https://xyz.com', '_blank', 'noopener,noreferrer');
+        } else {
+          onSectionChange(item.id);
+        }
+        setCollapsed(true);
+      }}
+      id={`sidebar-${item.id}`}
+    >
+      <span className="sidebar-item-icon">{item.icon}</span>
+      <span className="sidebar-item-label">{item.label}</span>
+      {activeSection === item.id && (
+        <span className="sidebar-active-indicator"></span>
+      )}
+    </button>
+  ))}
+</div>
 
+
+        {/* Cleaned up cutoff footer inline styles */}
         <div style={{
           marginTop: 'auto',
           background: '#c9d3f4ff',
@@ -199,35 +216,11 @@ export default function Sidebar({ role, activeSection, onSectionChange }) {
           color: '#1e3a8a',
           fontSize: '0.85rem',
           fontStyle: 'italic',
-          lineHeight: '1.4',
-          fontFamily: 'var(--font-body)',
-          fontWeight: '500'
+          lineHeight: '1.4'
         }}>
-          <div style={{
-            position: 'absolute',
-            top: '-8px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '12px',
-            height: '12px',
-            background: '#312e81',
-            borderRadius: '50%',
-            boxShadow: 'inset -2px -2px 4px rgba(0,0,0,0.3)'
-          }}></div>
-          <span style={{ fontSize: '1.5rem', lineHeight: 0, verticalAlign: 'middle', marginRight: '4px', color: '#4338ca' }}>&ldquo;</span>
-          {role === 'admin' && "A great administrator is the ultimate problem-solver and silent backbone of any organization."}
-          {role === 'faculty' && "The art of teaching is the art of assisting discovery. Inspire the next generation of thinkers."}
-          {role === 'student' && "Creativity is the process of having original ideas that have value. You don't just learn a subject; you interact with it."}
+          MITAOE Sidebar System
         </div>
       </aside>
-
-      {/* Mobile overlay */}
-      {!collapsed && (
-        <div
-          className="sidebar-overlay"
-          onClick={() => setCollapsed(true)}
-        />
-      )}
     </>
   );
 }
