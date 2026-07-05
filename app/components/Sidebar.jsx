@@ -188,7 +188,7 @@ export default function Sidebar({ role, activeSection, onSectionChange }) {
       onClick={() => {
         // Intercept click if it is the external timetable link
         if (item.id === 'timetable-generation') {
-          window.open('https://xyz.com', '_blank', 'noopener,noreferrer');
+          window.open('https://timetable-asymptote-horizons-projects.vercel.app', '_blank', 'noopener,noreferrer');
         } else {
           onSectionChange(item.id);
         }
@@ -219,7 +219,7 @@ export default function Sidebar({ role, activeSection, onSectionChange }) {
           fontStyle: 'italic',
           lineHeight: '1.4'
         }}>
-          MITAOE Sidebar System
+          {/* sticky note text */}
         </div>
       </aside>
     </>
