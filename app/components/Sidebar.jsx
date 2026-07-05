@@ -175,7 +175,7 @@ export default function Sidebar({ role, activeSection, onSectionChange }) {
       <aside className={`sidebar ${collapsed ? 'sidebar-collapsed' : ''}`} id="main-sidebar">
         <div className="module-header">
           <img
-            src="/mitaoe-white.svg"
+            src="/mitaoe-white.png"
             alt="MIT Academy of Engineering"
             className="module-logo"
           />
