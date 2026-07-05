@@ -180,7 +180,7 @@ export default function Sidebar({ role, activeSection, onSectionChange }) {
             className="module-logo"
           />
         </div>
-        <div className="sidebar-menu">
+       <div className="sidebar-menu">
   {menuItems.map((item) => (
     <button
       key={item.id}
@@ -204,6 +204,7 @@ export default function Sidebar({ role, activeSection, onSectionChange }) {
     </button>
   ))}
 </div>
+
 
 
         {/* Cleaned up cutoff footer inline styles */}
